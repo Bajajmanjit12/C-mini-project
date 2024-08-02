@@ -1,10 +1,37 @@
 /*Aim:To search for a target value in a sorted array using linear search and return its index if found*/
 #include<iostream>
 using namespace std;
+int n;
 
-void sortarray()           //to sort the array
+class L_search{
+    int arr[30],target;
+    public:
+    void accept();
+    void sortarray();
+    void count_occ();
+    void search();
+}l;
+
+void L_search::accept()
 {
-	int arr[20],n,i,j;
+    cout << "Enter the size of array: ";     
+    cin>>n;
+    cout<<"Enter the array elements: ";      
+    for (int i = 0; i < n; i++) 
+	{
+        cin >> arr[i];
+    }
+	sortarray();
+
+	cout << "The sorted array elements are: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << "\t";
+    }
+    cout << endl;
+}
+void L_search::sortarray()  
+{
+	int i,j;
 	for(i=0;i<n;i++)
 	{
 		for(j=0;j<n;j++)
@@ -20,27 +47,11 @@ void sortarray()           //to sort the array
 	}
 }
 
-int main()        //main function
+void L_search::search()
 {
-	int arr[10],n,i,target,flag=0,count=0;
-	cout << "Enter the size of array: ";     //accept size from user
-    cin>>n;
-    cout<<"Enter the array elements: ";      // accept array elements frm user
-    for (int i = 0; i < n; i++) 
-	{
-        cin >> arr[i];
-    }
-	sortarray();
-
-	cout << "The sorted array elements are: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << "\t";
-    }
-    cout << endl;
-    
     cout<<"Enter the target to search:";       
 	cin>>target;
-	
+	int i,flag=0;
 	for(i=0 ;i<n;i++)
 	{
 		if(arr[i]==target)
@@ -55,8 +66,12 @@ int main()        //main function
 	{
 		cout<<"Target not found!"<<endl;
 	}
-	
-	for(i=0 ;i<n;i++)
+}
+
+void L_search::count_occ()
+{
+    int i,count=0;
+    for(i=0 ;i<n;i++)
 	{
 		if(arr[i]==target)
 		{
@@ -80,7 +95,13 @@ int main()        //main function
 		cout<<"Number of last occurrence of Target :"<<i<<endl;    //display the position of last occurrence
 		break;
 		}
-	
+}
+}
+int main()      
+{
+    l.accept();
+    l.search();
+    l.count_occ();
 	return 0;
 }
-}
+
