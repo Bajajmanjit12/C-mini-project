@@ -70,7 +70,7 @@ void student ::B_search()
     mid=(high+low)/2;
     if(s[mid].rno ==r)
     {
-        cout<<"\nStudent is present in the program.\n";
+        cout<<"\nStudent was present in the program.\n";
         flag=1;
         break;
     }
@@ -85,7 +85,7 @@ void student ::B_search()
     }
     if(flag==0)
     {
-        cout<<"\nStudent is not present in the program.\n";
+        cout<<"\nStudent was not present in the program.\n";
     }
 }
 
